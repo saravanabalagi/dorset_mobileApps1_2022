@@ -11,7 +11,7 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
 - [x] Understand file structure
 - [x] Add a new TextView in `ConstraintLayout`
 
-## Week 2: Adding Interactivity
+## Week 2: Adding Interactivity I
 
 - [x] Understand the connection between Activity, Layouts, IDs and Resources
 - [x] Create, overload and use Functions
@@ -19,3 +19,17 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
 - [x] Use IDs to bind references of TextViews and change the text
 - [x] Add Button onClick Listener
 - [x] Use EditText, obtain user inputs and process the values
+
+## Week 3: Adding Interactivity II
+
+- [x] Adding Images
+    - [x] Raster Images
+    - [x] Transparent Images PNG
+    - [x] Vector Images
+    - [x] Icons
+    - [x] SVGs
+- [x] Adding New Activity
+- [x] Create and navigate to new activity
+- [x] Understand basics of Activity Stack
+- [x] Passing messages to other activities
+- [x] Kotlin Android Extensions; Import from layouts using ids
