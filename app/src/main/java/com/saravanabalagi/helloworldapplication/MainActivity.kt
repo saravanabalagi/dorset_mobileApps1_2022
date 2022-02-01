@@ -1,5 +1,6 @@
 package com.saravanabalagi.helloworldapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +25,12 @@ class MainActivity : AppCompatActivity() {
             val sumValue: Int = sum(num1Value, num2Value)
             textView.text = sumValue.toString()
         }
+
+        new_activity.setOnClickListener {
+            val intent = Intent(this, SecondaryActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
