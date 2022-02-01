@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Saravanabalagi/AndroidStudioProjects/HelloWorldApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21875" />
-        <entry key="..\:/Users/Saravanabalagi/AndroidStudioProjects/HelloWorldApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21875" />
+        <entry key="..\:/Users/Saravanabalagi/AndroidStudioProjects/HelloWorldApplication/app/src/main/res/drawable/ic_circle.xml" value="1.1" />
+        <entry key="..\:/Users/Saravanabalagi/AndroidStudioProjects/HelloWorldApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22" />
         <entry key="..\:/Users/Saravanabalagi/AndroidStudioProjects/HelloWorldApplication/app/src/main/res/layout/activity_copy.xml" value="0.5" />
         <entry key="..\:/Users/Saravanabalagi/AndroidStudioProjects/HelloWorldApplication/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Saravanabalagi/AndroidStudioProjects/HelloWorldApplication/app/src/main/res/layout/activity_secondary.xml" value="0.23867753623188406" />
