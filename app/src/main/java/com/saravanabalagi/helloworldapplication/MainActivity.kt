@@ -7,14 +7,16 @@ import android.util.Log
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 
+const val mainActKey = "mainAct"
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val sum1 = sum(4,5)
         val sum2 = sum(5,6,7)
-        Log.i("mainAct", "Sum " + sum1 + " " + sum2)
+        Log.i(mainActKey, "Sum " + sum1 + " " + sum2)
 
         val addButton = findViewById<Button>(R.id.addButton)
         addButton.setOnClickListener {
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         new_activity.setOnClickListener {
             val intent = Intent(this, SecondaryActivity::class.java)
+            intent.putExtra(mainActKey, textView.text)
             startActivity(intent)
         }
 
