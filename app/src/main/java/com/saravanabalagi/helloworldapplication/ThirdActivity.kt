@@ -12,6 +12,7 @@ class ThirdActivity: AppCompatActivity() {
         welcome_text.text = "Third"
         welcome_text.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
     }
