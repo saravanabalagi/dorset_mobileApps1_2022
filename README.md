@@ -33,3 +33,16 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
 - [x] Understand basics of Activity Stack
 - [x] Passing messages to other activities
 - [x] Kotlin Android Extensions; Import from layouts using ids
+
+## Week 4: Activity Lifecycle and Layouts
+
+- [x] Intent Flags
+  - [x] Understand Activity Stack and Tasks
+- [x] Android Constants Naming Conventions
+- [x] Connecting a physical android phone wirelessly
+- [x] Activity Lifecycle
+- [x] Layouts
+  - [x] Website review for layout planning 
+  - [x] Linear Layouts, Gravity, Margin, Padding
+
+
