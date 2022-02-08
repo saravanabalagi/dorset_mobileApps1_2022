@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
 //            mainTextView.text = (sum1 + sum2).toString()
 
             val sumValue: Int = sum(num1Value, num2Value)
-            textView.text = sumValue.toString()
+            sumTextView.text = sumValue.toString()
         }
 
         new_activity.setOnClickListener {
             val intent = Intent(this, SecondaryActivity::class.java)
-            intent.putExtra(MAIN_ACT_KEY, textView.text)
+            intent.putExtra(MAIN_ACT_KEY, sumTextView.text)
             startActivity(intent)
         }
 
