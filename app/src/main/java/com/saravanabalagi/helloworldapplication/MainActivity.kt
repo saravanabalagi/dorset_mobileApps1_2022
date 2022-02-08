@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.i(MAIN_ACT_KEY, "onCreate called")
 
         val sum1 = sum(4,5)
         val sum2 = sum(5,6,7)
@@ -35,6 +36,31 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(MAIN_ACT_KEY, "onStart called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(MAIN_ACT_KEY, "onPause called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(MAIN_ACT_KEY, "onResume called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(MAIN_ACT_KEY, "onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(MAIN_ACT_KEY, "onDestroy called")
     }
 
     private fun sum(a: Int, b: Int): Int = a + b
