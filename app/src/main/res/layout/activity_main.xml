@@ -22,6 +22,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+<!--        <EditText-->
+<!--            android:layout_weight="5"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
         <EditText
             android:id="@+id/num1"
             android:layout_width="wrap_content"
@@ -50,8 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,16 +72,16 @@
     </LinearLayout>
 
     <FrameLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp" />
 
-        <Button
-            android:layout_gravity="bottom|center"
-            android:id="@+id/new_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Activity" />
-    </FrameLayout>
+    <Button
+        android:id="@+id/new_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:text="New Activity" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
