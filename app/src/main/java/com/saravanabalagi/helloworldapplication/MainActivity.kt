@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         })
         snackBar.show()
 
+        tohide_layout.visibility = View.GONE;
+        new_activity.visibility = View.VISIBLE;
+
         val sum1 = sum(4,5)
         val sum2 = sum(5,6,7)
         Log.i(MAIN_ACT_KEY, "Sum " + sum1 + " " + sum2)
