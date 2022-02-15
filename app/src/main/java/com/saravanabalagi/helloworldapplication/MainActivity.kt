@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.i(MAIN_ACT_KEY, "onCreate called")
 
-        val snackBar = Snackbar.make(this, frame_layout, "No internet connection (Not Really!)", Snackbar.LENGTH_INDEFINITE)
+        val snackBar = Snackbar.make(this, parent_layout, "No internet connection (Not Really!)", Snackbar.LENGTH_INDEFINITE)
         snackBar.setAction("Retry", View.OnClickListener {
             Toast.makeText(this, "Retry Button Clicked", Toast.LENGTH_LONG).show()
             snackBar.dismiss()
