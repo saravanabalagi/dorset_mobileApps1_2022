@@ -4,7 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+
 import kotlinx.android.synthetic.main.activity_main.*
 
 const val MAIN_ACT_KEY = "mainAct"
@@ -14,6 +18,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i(MAIN_ACT_KEY, "onCreate called")
+
+        val snackBar = Snackbar.make(this, frame_layout, "No internet connection (Not Really!)", Snackbar.LENGTH_INDEFINITE)
+        snackBar.setAction("Retry", View.OnClickListener {
+            Toast.makeText(this, "Retry Button Clicked", Toast.LENGTH_LONG).show()
+            snackBar.dismiss()
+        })
+        snackBar.show()
 
         val sum1 = sum(4,5)
         val sum2 = sum(5,6,7)
