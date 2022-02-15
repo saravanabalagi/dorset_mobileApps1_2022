@@ -1,6 +1,7 @@
 package com.saravanabalagi.helloworldapplication
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -44,6 +45,16 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SecondaryActivity::class.java)
             intent.putExtra(MAIN_ACT_KEY, sumTextView.text)
             startActivity(intent)
+        }
+
+        fab.setOnClickListener {
+            Toast.makeText(this, "fab called", Toast.LENGTH_LONG).show()
+
+            // Taken from
+            // https://www.tutorialkart.com/kotlin-android/android-open-url-in-browser-activity/
+            val openURL = Intent(android.content.Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://github.com/saravanabalagi")
+            startActivity(openURL)
         }
 
 

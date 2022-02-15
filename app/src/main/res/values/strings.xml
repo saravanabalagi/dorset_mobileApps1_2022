@@ -2,6 +2,7 @@
     <string name="app_name">HelloWorldApplication</string>
     <string name="app_content">Hello New thing!</string>
     <string name="new_string">Hello New string</string>
+    <string name="get_me_coffee" translatable="false">Get me coffee</string>
 
 <!--    <tagname namesapce:property="property_value">Some content</tagname>-->
 <!--    <emptytag namesapce:property="property_value" anotherProperty="somevalue" />-->
