@@ -45,4 +45,13 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
   - [x] Website review for layout planning 
   - [x] Linear Layouts, Gravity, Margin, Padding
 
+## Week 5: More Components
+
+- [x] ScrollView
+- [x] Show and hide views
+- [x] Floating Action Button
+- [x] XML Tags and properties
+- [x] New Languages
+- [x] Toasts, SnackBars with Actions
+- [x] Layout weights with 0dp height
 
