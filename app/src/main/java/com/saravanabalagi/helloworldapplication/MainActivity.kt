@@ -36,8 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         val addButton = findViewById<Button>(R.id.addButton)
         addButton.setOnClickListener {
-            val num1Value: Int = Integer.parseInt(num1.text.toString())
-            val num2Value: Int = Integer.parseInt(num2.text.toString())
+            val num1String = num1.text.toString();
+            val num2String = num2.text.toString();
+            val num1Value: Int = if(num1String.isNotEmpty()) Integer.parseInt(num1String) else 0
+            val num2Value: Int = if(num2String.isNotEmpty()) Integer.parseInt(num2String) else 0
 //            mainTextView.text = (sum1 + sum2).toString()
 
             val sumValue: Int = sum(num1Value, num2Value)
