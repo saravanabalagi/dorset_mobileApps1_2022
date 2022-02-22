@@ -22,6 +22,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
 
 <!--        <EditText-->
@@ -43,12 +44,32 @@
             android:layout_weight="0.5"
             android:inputType="number" />
 
-        <Button
+        <LinearLayout
+            android:layout_marginLeft="10dp"
             android:id="@+id/addButton"
+            android:gravity="center"
+            android:background="@color/red"
+            android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Show Sum" />
+            android:orientation="horizontal">
+
+            <ImageView
+                app:tint="@color/white"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_add_24"
+                />
+
+            <TextView
+                android:textColor="#EEEEEE"
+                android:textSize="15sp"
+                android:textAllCaps="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Show Sum" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -57,10 +78,11 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center|top"
             android:orientation="horizontal"
             android:padding="10dp">
 

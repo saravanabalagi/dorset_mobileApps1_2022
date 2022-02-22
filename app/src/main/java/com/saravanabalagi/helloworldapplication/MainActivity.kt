@@ -5,8 +5,10 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 
@@ -34,7 +36,19 @@ class MainActivity : AppCompatActivity() {
         val sum2 = sum(5,6,7)
         Log.i(MAIN_ACT_KEY, "Sum " + sum1 + " " + sum2)
 
-        val addButton = findViewById<Button>(R.id.addButton)
+        val addButton = findViewById<View>(R.id.addButton)
+        addButton.setOnTouchListener { view, motionEvent ->
+            if(motionEvent.action == MotionEvent.ACTION_DOWN) {
+                Log.i(MAIN_ACT_KEY, "button pressed")
+                addButton.setBackgroundColor(getColor(R.color.red_dark))
+            } else if(motionEvent.action == MotionEvent.ACTION_UP) {
+                view.performClick()
+                addButton.setBackgroundColor(getColor(R.color.red))
+                Log.i(MAIN_ACT_KEY, "button press released")
+            }
+            return@setOnTouchListener true
+        }
+
         addButton.setOnClickListener {
             val num1String = num1.text.toString();
             val num2String = num2.text.toString();
