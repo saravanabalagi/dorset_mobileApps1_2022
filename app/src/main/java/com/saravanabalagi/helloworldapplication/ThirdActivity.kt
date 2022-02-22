@@ -2,7 +2,9 @@ package com.saravanabalagi.helloworldapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_secondary.*
 
 class ThirdActivity: AppCompatActivity() {
@@ -15,5 +17,8 @@ class ThirdActivity: AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
+
+        countries_recycler_view.layoutManager = LinearLayoutManager(this)
+        countries_recycler_view.adapter = CountriesAdapter(countriesStrings)
     }
 }
