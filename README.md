@@ -55,3 +55,9 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
 - [x] Toasts, SnackBars with Actions
 - [x] Layout weights with 0dp height
 
+## Week 6: List View, Recycler Views and more
+
+- [x] Recycler View
+- [x] ListView
+- [x] Fake Button using LinearLayout
+- [x] Misc: Handle Empty Strings, Upgrade Gradle Plugin
