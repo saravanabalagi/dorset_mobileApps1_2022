@@ -18,7 +18,7 @@ class CountriesAdapter(val listItems: Array<String>): RecyclerView.Adapter<Count
     }
 
     override fun getItemCount(): Int {
-        return countriesStrings.size
+        return listItems.size
     }
 
 }
