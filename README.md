@@ -61,3 +61,10 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
 - [x] ListView
 - [x] Fake Button using LinearLayout
 - [x] Misc: Handle Empty Strings, Upgrade Gradle Plugin
+
+## Week 7: Recycler Views
+
+ - [x] Names and places
+ - [x] Instagram Layout Improvements
+ - [x] Add Basic Instagram Layout
+ - [x] Fix Errors with RecyclerView
