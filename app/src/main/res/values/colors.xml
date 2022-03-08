@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FFFF2222</color>
     <color name="red_dark">#FFCC0000</color>
+    <color name="recycler_button_color">#333333</color>
 </resources>
