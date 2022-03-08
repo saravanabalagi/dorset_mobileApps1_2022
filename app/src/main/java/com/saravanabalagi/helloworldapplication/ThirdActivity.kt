@@ -20,6 +20,6 @@ class ThirdActivity: AppCompatActivity() {
 
         val otherStrings = arrayOf("One", "Two", "Three", "Four")
         countries_recycler_view.layoutManager = LinearLayoutManager(this)
-        countries_recycler_view.adapter = CountriesAdapter(otherStrings)
+        countries_recycler_view.adapter = CountriesAdapter(otherStrings, this)
     }
 }
