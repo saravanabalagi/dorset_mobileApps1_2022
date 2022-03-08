@@ -18,8 +18,9 @@ class ThirdActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
-        val otherStrings = arrayOf("One", "Two", "Three", "Four")
+        val nameStrings = arrayOf("Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "Elijah", "Charlotte")
+        val locationStrings = arrayOf("Belfast", "Doolin", "Dublin", "Killarney", "Galway", "Kinsale", "Westport", "Adare")
         countries_recycler_view.layoutManager = LinearLayoutManager(this)
-        countries_recycler_view.adapter = CountriesAdapter(otherStrings, this)
+        countries_recycler_view.adapter = CountriesAdapter(nameStrings, locationStrings, this)
     }
 }
