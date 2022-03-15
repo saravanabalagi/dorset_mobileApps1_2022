@@ -74,6 +74,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:gravity="start|center"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content">
@@ -85,6 +86,11 @@
                 android:id="@+id/like_button"
                 app:tint="@color/recycler_button_color"
                 android:src="@drawable/ic_icon_heart" />
+
+            <TextView
+                android:id="@+id/num_likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:id="@+id/comment_button"

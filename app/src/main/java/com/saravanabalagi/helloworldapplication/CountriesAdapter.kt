@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class CountriesAdapter(val nameStrings: Array<String>, val locationStrings: Array<String>, val context: Context): RecyclerView.Adapter<CountriesViewHolder>() {
+class CountriesAdapter(private val posts: Array<Post>, private val context: Context): RecyclerView.Adapter<CountriesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountriesViewHolder {
         val inflator = LayoutInflater.from(parent.context)
         val view = inflator.inflate(R.layout.countries_recycler_template, parent, false)
@@ -18,15 +18,21 @@ class CountriesAdapter(val nameStrings: Array<String>, val locationStrings: Arra
     }
 
     override fun onBindViewHolder(holder: CountriesViewHolder, position: Int) {
-        holder.itemView.findViewById<TextView>(R.id.poster_name).text = nameStrings[position]
-        holder.itemView.findViewById<TextView>(R.id.poster_location).text = locationStrings[position] + ", Ireland"
+        val post = posts[position]
+        holder.itemView.findViewById<TextView>(R.id.poster_name).text = post.name
+        holder.itemView.findViewById<TextView>(R.id.poster_location).text = post.location.toString()
+
+        val numLikesTextView = holder.itemView.findViewById<TextView>(R.id.num_likes)
+        numLikesTextView.text = post.numLikes.toString()
+
         holder.itemView.findViewById<ImageView>(R.id.like_button).setOnClickListener {
-            Toast.makeText(context, "Hi there $position", Toast.LENGTH_LONG).show()
+            post.numLikes += 1
+            numLikesTextView.text = post.numLikes.toString()
         }
     }
 
     override fun getItemCount(): Int {
-        return nameStrings.size
+        return posts.size
     }
 
 }
