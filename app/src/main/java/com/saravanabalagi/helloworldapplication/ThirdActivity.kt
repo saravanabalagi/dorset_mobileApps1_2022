@@ -1,9 +1,13 @@
 package com.saravanabalagi.helloworldapplication
 
+import android.app.NotificationManager
+import android.app.Service
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.saravanabalagi.helloworldapplication.dataTypes.Location
 import com.saravanabalagi.helloworldapplication.dataTypes.Post
@@ -37,5 +41,10 @@ class ThirdActivity: AppCompatActivity() {
 
         posts_recycler_view.layoutManager = LinearLayoutManager(this)
         posts_recycler_view.adapter = PostsAdapter(posts, this)
+
+        stylegan2_link.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://arxiv.org/abs/1912.04958"))
+            startActivity(intent)
+        }
     }
 }

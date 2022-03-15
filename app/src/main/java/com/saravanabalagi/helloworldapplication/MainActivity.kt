@@ -1,7 +1,12 @@
 package com.saravanabalagi.helloworldapplication
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.Service
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,11 +15,14 @@ import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
 import com.google.android.material.snackbar.Snackbar
 
 import kotlinx.android.synthetic.main.activity_main.*
 
 const val MAIN_ACT_KEY = "mainAct"
+const val NOTIFICATION_CHANNEL_ID = "General"
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,7 +84,32 @@ class MainActivity : AppCompatActivity() {
             startActivity(openURL)
         }
 
+        createNotificationChannel()
 
+//      create Notification
+        val notificationBuilder = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
+            .setContentTitle("Sample Title")
+            .setContentText("Hi there, I'm a notification")
+            .setSmallIcon(R.drawable.coffee)
+            .setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.coffee))
+
+//      show notification
+        val notificationId = 123;
+        with(getSystemService(Service.NOTIFICATION_SERVICE) as NotificationManager) {
+            notify(notificationId, notificationBuilder.build())
+//            cancel(notificationId)
+        }
+
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(NOTIFICATION_CHANNEL_ID, "General Notifications Channel", NotificationManager.IMPORTANCE_DEFAULT).apply {
+                description = "Some desc here"
+            }
+            val notificationManager = getSystemService(Service.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 
     override fun onStart() {
