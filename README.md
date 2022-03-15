@@ -68,3 +68,12 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
  - [x] Instagram Layout Improvements
  - [x] Add Basic Instagram Layout
  - [x] Fix Errors with RecyclerView
+
+## Week 8: Images from URL, Notifications
+
+ - [x] Add a notification
+ - [x] Load random GAN images from internet
+ - [x] Load image from URL into ImageView
+ - [x] Housekeeping
+ - [x] Update like button
+ - [x] New DataType Post, update adapter to use Post
