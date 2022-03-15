@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
 
 class CountriesAdapter(private val posts: Array<Post>, private val context: Context): RecyclerView.Adapter<CountriesViewHolder>() {
@@ -23,11 +24,16 @@ class CountriesAdapter(private val posts: Array<Post>, private val context: Cont
         holder.itemView.findViewById<TextView>(R.id.poster_location).text = post.location.toString()
 
         val numLikesTextView = holder.itemView.findViewById<TextView>(R.id.num_likes)
+        val heartIcon = holder.itemView.findViewById<ImageView>(R.id.like_button)
         numLikesTextView.text = post.numLikes.toString()
 
         holder.itemView.findViewById<ImageView>(R.id.like_button).setOnClickListener {
             post.numLikes += 1
             numLikesTextView.text = post.numLikes.toString()
+            if (post.numLikes > 0) {
+                heartIcon.setBackgroundColor(getColor(context, R.color.red))
+                numLikesTextView.visibility = View.VISIBLE
+            }
         }
     }
 
