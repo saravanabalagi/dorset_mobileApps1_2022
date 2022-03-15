@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.core.content.ContextCompat.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.saravanabalagi.helloworldapplication.dataTypes.Post
+import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import java.io.InputStream
 import java.net.URL
@@ -34,22 +35,26 @@ class PostsAdapter(private val posts: Array<Post>, private val context: Context)
         val imageView = holder.itemView.findViewById<ImageView>(R.id.image)
         val dpImageView = holder.itemView.findViewById<ImageView>(R.id.dp)
 
-        if (position == 0) {
+        val dpUrl = "https://thispersondoesnotexist.com/image"
+        Picasso.get()
+            .load(dpUrl)
+            .placeholder(getDrawable(context, R.drawable.coffee)!!)
+            .error(getDrawable(context, R.drawable.ic_baseline_error_24)!!)
+            .memoryPolicy(MemoryPolicy.NO_CACHE)
+            .into(dpImageView)
 
-//            val dpUrl = "https://cdn.pixabay.com/photo/2020/09/26/07/05/sea-5603351_960_720.jpg"
-            val dpUrl = "https://cdn.pixabay.com/photo/2022/03/01/20/58/peace-genius-7042013_960_720.jpg"
-            Picasso.get()
-                .load(dpUrl)
-                .placeholder(getDrawable(context, R.drawable.coffee)!!)
-                .error(getDrawable(context, R.drawable.ic_baseline_error_24)!!)
-                .into(dpImageView)
+        val imageUrl = "https://thiscatdoesnotexist.com"
+        Picasso.get()
+            .load(imageUrl)
+            .placeholder(getDrawable(context, R.drawable.coffee)!!)
+            .error(getDrawable(context, R.drawable.ic_baseline_error_24)!!)
+            .memoryPolicy(MemoryPolicy.NO_CACHE)
+            .into(imageView)
 
 //            This is bad! Don't network on main thread
 //            val inputStream = URL(dpUrl).openStream()
 //            val drawable = Drawable.createFromStream(inputStream, "Pixabay")
 //            dpImageView.setImageDrawable(drawable)
-
-        }
 
         holder.itemView.findViewById<ImageView>(R.id.like_button).setOnClickListener {
             post.numLikes += 1
