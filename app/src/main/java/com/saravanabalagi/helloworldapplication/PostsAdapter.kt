@@ -4,21 +4,20 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
+import com.saravanabalagi.helloworldapplication.dataTypes.Post
 
-class CountriesAdapter(private val posts: Array<Post>, private val context: Context): RecyclerView.Adapter<CountriesViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountriesViewHolder {
+class PostsAdapter(private val posts: Array<Post>, private val context: Context): RecyclerView.Adapter<PostsViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
         val inflator = LayoutInflater.from(parent.context)
-        val view = inflator.inflate(R.layout.countries_recycler_template, parent, false)
-        return CountriesViewHolder(view)
+        val view = inflator.inflate(R.layout.posts_recycler_template, parent, false)
+        return PostsViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CountriesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
         val post = posts[position]
         holder.itemView.findViewById<TextView>(R.id.poster_name).text = post.name
         holder.itemView.findViewById<TextView>(R.id.poster_location).text = post.location.toString()
@@ -43,4 +42,4 @@ class CountriesAdapter(private val posts: Array<Post>, private val context: Cont
 
 }
 
-class CountriesViewHolder(val v: View): RecyclerView.ViewHolder(v)
+class PostsViewHolder(val v: View): RecyclerView.ViewHolder(v)

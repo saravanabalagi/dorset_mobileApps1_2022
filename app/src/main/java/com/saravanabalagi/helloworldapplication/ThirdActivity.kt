@@ -2,17 +2,19 @@ package com.saravanabalagi.helloworldapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.saravanabalagi.helloworldapplication.dataTypes.Location
+import com.saravanabalagi.helloworldapplication.dataTypes.Post
 import kotlinx.android.synthetic.main.activity_secondary.*
 
 class ThirdActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_secondary)
+
+        countries_list_view.visibility = View.GONE
         welcome_text.text = "Third"
         welcome_text.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -33,26 +35,7 @@ class ThirdActivity: AppCompatActivity() {
             }
         }
 
-        countries_recycler_view.layoutManager = LinearLayoutManager(this)
-        countries_recycler_view.adapter = CountriesAdapter(posts, this)
-    }
-}
-
-class Post {
-    var name: String = "No name given"
-    var location: Location = Location()
-    var numLikes: Int = 0
-
-    override fun toString(): String {
-        return "$name ($location)"
-    }
-}
-
-class Location {
-    var city: String = "No city"
-    var country: String = "No country"
-
-    override fun toString(): String {
-        return "$city, $country"
+        posts_recycler_view.layoutManager = LinearLayoutManager(this)
+        posts_recycler_view.adapter = PostsAdapter(posts, this)
     }
 }
