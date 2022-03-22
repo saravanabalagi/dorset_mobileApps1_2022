@@ -34,7 +34,12 @@ class MainActivity : AppCompatActivity() {
         val postIndex = intent.getIntExtra(POST_INDEX, -1)
         if (postIndex >= 0) {
             posts[postIndex].numLikes += 100
+            val intent = Intent()
+            intent.putExtra(POST_INDEX, postIndex)
+            setResult(RESULT_OK, intent)
         }
+
+
 
         val snackBar = Snackbar.make(this, parent_layout, "No internet connection (Not Really!)", Snackbar.LENGTH_INDEFINITE)
         snackBar.setAction("Retry", View.OnClickListener {

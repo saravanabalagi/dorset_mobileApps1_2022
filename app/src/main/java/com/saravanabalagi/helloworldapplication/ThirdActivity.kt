@@ -50,8 +50,15 @@ class ThirdActivity: AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        posts_recycler_view.adapter?.notifyDataSetChanged()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1000 && resultCode == RESULT_OK) {
+            val position = data?.getIntExtra(POST_INDEX, -1)
+            if (position != null && position >= 0) {
+                Toast.makeText(this, "Position received $position", Toast.LENGTH_LONG).show()
+                posts_recycler_view.adapter?.notifyItemChanged(position)
+            }
+        }
     }
 }

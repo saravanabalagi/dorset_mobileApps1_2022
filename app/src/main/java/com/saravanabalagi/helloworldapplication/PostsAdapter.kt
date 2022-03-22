@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.*
 import androidx.recyclerview.widget.RecyclerView
 import com.saravanabalagi.helloworldapplication.dataTypes.Post
@@ -70,7 +71,9 @@ class PostsAdapter(private val posts: Array<Post>, private val context: Context)
         imageView.setOnClickListener {
             val intent = Intent(context, MainActivity::class.java)
             intent.putExtra(POST_INDEX, position)
-            startActivity(context, intent, null)
+            (context as ThirdActivity).startActivityForResult(intent, 1000)
+//            val intent = Intent(context, MainActivity::class.java)
+//            startActivity(context, intent, null)
         }
     }
 
