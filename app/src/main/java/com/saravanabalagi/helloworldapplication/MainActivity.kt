@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 const val MAIN_ACT_KEY = "mainAct"
 const val NOTIFICATION_CHANNEL_ID = "General"
+const val POST_INDEX = "PostIndex"
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +30,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i(MAIN_ACT_KEY, "onCreate called")
+
+        val postIndex = intent.getIntExtra(POST_INDEX, -1)
+        if (postIndex >= 0) {
+            posts[postIndex].numLikes += 100
+        }
 
         val snackBar = Snackbar.make(this, parent_layout, "No internet connection (Not Really!)", Snackbar.LENGTH_INDEFINITE)
         snackBar.setAction("Retry", View.OnClickListener {

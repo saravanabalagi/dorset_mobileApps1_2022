@@ -5,7 +5,9 @@ import android.app.Service
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,5 +48,10 @@ class ThirdActivity: AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://arxiv.org/abs/1912.04958"))
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        posts_recycler_view.adapter?.notifyDataSetChanged()
     }
 }

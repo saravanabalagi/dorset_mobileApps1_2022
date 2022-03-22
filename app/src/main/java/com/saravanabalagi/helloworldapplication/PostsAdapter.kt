@@ -1,6 +1,7 @@
 package com.saravanabalagi.helloworldapplication
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getColor
-import androidx.core.content.ContextCompat.getDrawable
+import androidx.core.content.ContextCompat.*
 import androidx.recyclerview.widget.RecyclerView
 import com.saravanabalagi.helloworldapplication.dataTypes.Post
 import com.squareup.picasso.MemoryPolicy
@@ -65,6 +65,12 @@ class PostsAdapter(private val posts: Array<Post>, private val context: Context)
             post.numLikes += 1
             notifyItemChanged(position)
 //            notifyDataSetChanged()
+        }
+
+        imageView.setOnClickListener {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.putExtra(POST_INDEX, position)
+            startActivity(context, intent, null)
         }
     }
 
