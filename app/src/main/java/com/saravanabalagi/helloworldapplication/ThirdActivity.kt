@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,24 +42,21 @@ class ThirdActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
+        val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == AppCompatActivity.RESULT_OK) {
+                val positionResult = it.data?.getIntExtra(POST_INDEX, -1)
+                Toast.makeText(this, "Position received $positionResult", Toast.LENGTH_LONG).show()
+                if (positionResult != null && positionResult >= 0)
+                    posts_recycler_view.adapter?.notifyItemChanged(positionResult)
+            }
+        }
+
         posts_recycler_view.layoutManager = LinearLayoutManager(this)
-        posts_recycler_view.adapter = PostsAdapter(posts, this)
+        posts_recycler_view.adapter = PostsAdapter(posts, resultLauncher, this)
 
         stylegan2_link.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://arxiv.org/abs/1912.04958"))
             startActivity(intent)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == 1000 && resultCode == RESULT_OK) {
-            val position = data?.getIntExtra(POST_INDEX, -1)
-            if (position != null && position >= 0) {
-                Toast.makeText(this, "Position received $position", Toast.LENGTH_LONG).show()
-                posts_recycler_view.adapter?.notifyItemChanged(position)
-            }
         }
     }
 }

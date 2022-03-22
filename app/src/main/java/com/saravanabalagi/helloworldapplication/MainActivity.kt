@@ -39,8 +39,6 @@ class MainActivity : AppCompatActivity() {
             setResult(RESULT_OK, intent)
         }
 
-
-
         val snackBar = Snackbar.make(this, parent_layout, "No internet connection (Not Really!)", Snackbar.LENGTH_INDEFINITE)
         snackBar.setAction("Retry", View.OnClickListener {
             Toast.makeText(this, "Retry Button Clicked", Toast.LENGTH_LONG).show()
