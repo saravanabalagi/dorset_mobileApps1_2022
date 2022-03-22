@@ -1,10 +1,10 @@
 package com.saravanabalagi.helloworldapplication.dataTypes
 
-class Location {
+class Address {
+    var street: String = "No street"
     var city: String = "No city"
-    var country: String = "No country"
 
     override fun toString(): String {
-        return "$city, $country"
+        return "$street, $city"
     }
 }

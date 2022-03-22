@@ -2,24 +2,17 @@ package com.saravanabalagi.helloworldapplication
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.*
 import androidx.recyclerview.widget.RecyclerView
 import com.saravanabalagi.helloworldapplication.dataTypes.Post
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
-import java.io.InputStream
-import java.net.URL
 
 class PostsAdapter(private val posts: Array<Post>, private val resultLauncher: ActivityResultLauncher<Intent>, private val context: Context): RecyclerView.Adapter<PostsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
@@ -31,7 +24,7 @@ class PostsAdapter(private val posts: Array<Post>, private val resultLauncher: A
     override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
         val post = posts[position]
         holder.itemView.findViewById<TextView>(R.id.poster_name).text = post.name
-        holder.itemView.findViewById<TextView>(R.id.poster_location).text = post.location.toString()
+        holder.itemView.findViewById<TextView>(R.id.poster_location).text = post.address.toString()
 
         val numLikesTextView = holder.itemView.findViewById<TextView>(R.id.num_likes)
         val heartIcon = holder.itemView.findViewById<ImageView>(R.id.like_button)
