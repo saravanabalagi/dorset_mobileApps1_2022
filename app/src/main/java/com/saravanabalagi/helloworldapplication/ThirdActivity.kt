@@ -13,6 +13,19 @@ import com.saravanabalagi.helloworldapplication.dataTypes.Location
 import com.saravanabalagi.helloworldapplication.dataTypes.Post
 import kotlinx.android.synthetic.main.activity_secondary.*
 
+val nameStrings = arrayOf("Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "Elijah", "Charlotte")
+val locationStrings = arrayOf("Belfast", "Doolin", "Dublin", "Killarney", "Galway", "Kinsale", "Westport", "Adare")
+
+val posts = Array<Post>(nameStrings.size) {
+    Post().apply {
+        name = nameStrings[it]
+        location = Location().apply {
+            city = locationStrings[it]
+            country = "Ireland"
+        }
+    }
+}
+
 class ThirdActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,19 +37,6 @@ class ThirdActivity: AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-        }
-
-        val nameStrings = arrayOf("Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "Elijah", "Charlotte")
-        val locationStrings = arrayOf("Belfast", "Doolin", "Dublin", "Killarney", "Galway", "Kinsale", "Westport", "Adare")
-
-        val posts = Array<Post>(nameStrings.size) {
-            Post().apply {
-                name = nameStrings[it]
-                location = Location().apply {
-                    city = locationStrings[it]
-                    country = "Ireland"
-                }
-            }
         }
 
         posts_recycler_view.layoutManager = LinearLayoutManager(this)

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.content.ContextCompat.getDrawable
 import androidx.recyclerview.widget.RecyclerView
@@ -31,6 +32,10 @@ class PostsAdapter(private val posts: Array<Post>, private val context: Context)
         val numLikesTextView = holder.itemView.findViewById<TextView>(R.id.num_likes)
         val heartIcon = holder.itemView.findViewById<ImageView>(R.id.like_button)
         numLikesTextView.text = post.numLikes.toString()
+        if (post.numLikes > 0) {
+            heartIcon.setColorFilter(getColor(context, R.color.red))
+            numLikesTextView.visibility = View.VISIBLE
+        } else numLikesTextView.visibility = View.GONE
 
         val imageView = holder.itemView.findViewById<ImageView>(R.id.image)
         val dpImageView = holder.itemView.findViewById<ImageView>(R.id.dp)
@@ -58,11 +63,8 @@ class PostsAdapter(private val posts: Array<Post>, private val context: Context)
 
         holder.itemView.findViewById<ImageView>(R.id.like_button).setOnClickListener {
             post.numLikes += 1
-            numLikesTextView.text = post.numLikes.toString()
-            if (post.numLikes > 0) {
-                heartIcon.setBackgroundColor(getColor(context, R.color.red))
-                numLikesTextView.visibility = View.VISIBLE
-            }
+            notifyItemChanged(position)
+//            notifyDataSetChanged()
         }
     }
 
