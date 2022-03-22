@@ -15,10 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.saravanabalagi.helloworldapplication.dataTypes.Location
 import com.saravanabalagi.helloworldapplication.dataTypes.Post
 import kotlinx.android.synthetic.main.activity_secondary.*
+import okhttp3.*
+import java.io.IOException
 
+const val THIRD_ACT_KEY = "ThirdActivity"
 val nameStrings = arrayOf("Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "Elijah", "Charlotte")
 val locationStrings = arrayOf("Belfast", "Doolin", "Dublin", "Killarney", "Galway", "Kinsale", "Westport", "Adare")
-
 val posts = Array<Post>(nameStrings.size) {
     Post().apply {
         name = nameStrings[it]
@@ -58,5 +60,20 @@ class ThirdActivity: AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://arxiv.org/abs/1912.04958"))
             startActivity(intent)
         }
+
+        val client = OkHttpClient()
+        val request = Request.Builder().url("https://jsonplaceholder.typicode.com/users").build()
+        client.newCall(request).enqueue(object: Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e(THIRD_ACT_KEY, "Exception: $e")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful) {
+                    val body = response.body?.string()
+                    Log.i(THIRD_ACT_KEY, "Body: $body")
+                }
+            }
+        })
     }
 }
