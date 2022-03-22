@@ -77,3 +77,12 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
  - [x] Housekeeping
  - [x] Update like button
  - [x] New DataType Post, update adapter to use Post
+
+## Week 9: HTTP Requests, RecyclerView Notify
+
+ - [x] Make a GET Request on JSON API, fill in details using gson, a…
+ - [x] Make HTTP Request
+ - [x] remove startActivityForResult deprecation warning
+ - [x] startActivityForResult
+ - [x] RecyclerView NotifyDatasetChanged
+ - [x] RecyclerView NotifyItemChanged
