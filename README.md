@@ -86,3 +86,7 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
  - [x] startActivityForResult
  - [x] RecyclerView NotifyDatasetChanged
  - [x] RecyclerView NotifyItemChanged
+
+## Week 10: Revisit Recycler Views, Shared Preferences
+
+- [x] Shared Preferences
