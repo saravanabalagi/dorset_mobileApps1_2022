@@ -3,6 +3,7 @@ package com.saravanabalagi.helloworldapplication
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i(MAIN_ACT_KEY, "onCreate called")
+        val sp = getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
 
         val postIndex = intent.getIntExtra(POST_INDEX, -1)
         if (postIndex >= 0) {
@@ -37,6 +39,17 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent()
             intent.putExtra(POST_INDEX, postIndex)
             setResult(RESULT_OK, intent)
+
+            with (sp.edit()) {
+                putInt(POST_INDEX, postIndex)
+                apply()
+                commit()
+            }
+        }
+
+        val lastPostIndex = sp.getInt(POST_INDEX, -1)
+        if (lastPostIndex > -1) {
+            Toast.makeText(this, "You liked $lastPostIndex cat 100 times", Toast.LENGTH_LONG).show()
         }
 
         val snackBar = Snackbar.make(this, parent_layout, "No internet connection (Not Really!)", Snackbar.LENGTH_INDEFINITE)
