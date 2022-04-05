@@ -12,7 +12,17 @@ class ReusableFragmentsActivity: AppCompatActivity(R.layout.reusable_fragments_a
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add(R.id.fragment, UserDescriptionFragment())
+
+//                val frag = UserDescriptionFragment()
+//                val bundle = Bundle()
+//                bundle.putString("NAME", "Spiderman")
+//                frag.arguments = bundle
+
+                add(R.id.fragment, UserDescriptionFragment().apply {
+                    arguments = Bundle().apply {
+                        putString("NAME", "Spiderman")
+                    }
+                })
             }
         }
     }
