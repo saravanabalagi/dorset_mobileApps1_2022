@@ -2,9 +2,11 @@ package com.saravanabalagi.helloworldapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.reusable_fragments_activity.*
 
 
@@ -30,6 +32,11 @@ class ReusableFragmentsActivity: AppCompatActivity(R.layout.reusable_fragments_a
                 }
             }
         }
+
+        TabLayoutMediator(tab_layout, view_pager) { view, position ->
+//            view.text = "Page $position"
+            view.icon = ContextCompat.getDrawable(this, R.drawable.coffee)
+        }.attach()
 
     }
 }
