@@ -31,6 +31,12 @@ class ReusableFragmentsActivity: AppCompatActivity(R.layout.reusable_fragments_a
                     putInt("PAGE_NUMBER", position)
                 }
             }
+//            override fun createFragment(position: Int): Fragment = {
+//                when(position) {
+//                    1 -> ViewPagerFragment()
+//                    2 -> SecondPagerFragment()
+//                }
+//            }
         }
 
         TabLayoutMediator(tab_layout, view_pager) { view, position ->
