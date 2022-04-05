@@ -2,6 +2,10 @@
     <string name="app_name">HelloWorldApplication</string>
     <string name="app_content">Hello New thing!</string>
     <string name="new_string">Hello New string</string>
+    <string name="placeholder_long_text">
+"""Unlike the XML approach, the android:name attribute isn\'t used on the FragmentContainerView here, so no specific fragment is automatically instantiated. Instead, a FragmentTransaction is used to instantiate a fragment and add it to the activity\'s layout.
+While your activity is running, you can make fragment transactions such as adding, removing, or replacing a fragment. In your FragmentActivity, you can get an instance of the FragmentManager, which can be used to create a FragmentTransaction. Then, you can instantiate your fragment within your activity's onCreate() method using FragmentTransaction.add(), passing in the ViewGroup ID of the container in your layout and the fragment class you want to add and then commit the transaction, as shown in the following example:
+"""</string>
     <string name="get_me_coffee" translatable="false">Get me coffee</string>
 
 <!--    <tagname namesapce:property="property_value">Some content</tagname>-->
