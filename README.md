@@ -90,3 +90,11 @@ This repo contains the Mobile App developed as part of Dorset Mobile Application
 ## Week 10: Revisit Recycler Views, Shared Preferences
 
 - [x] Shared Preferences
+
+## Week 11: Fragments and ViewPager
+
+ - [x] Extra Comments for using different fragments inside ViewPager
+ - [x] ViewPager with TabLayout
+ - [x] ViewPager with 3 pages
+ - [x] Pass arguments to Fragment
+ - [x] Create new Fragment
